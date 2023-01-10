@@ -1,4 +1,4 @@
-package com.bogcha.application;
+package com.restaurant.application;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

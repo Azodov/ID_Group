@@ -1,8 +1,8 @@
-package com.bogcha.application.webRest;
+package com.restaurant.application.webRest;
 
 
-import com.bogcha.application.domain.User;
-import com.bogcha.application.service.UserService;
+import com.restaurant.application.domain.User;
+import com.restaurant.application.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

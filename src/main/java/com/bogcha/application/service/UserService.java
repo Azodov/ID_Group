@@ -1,8 +1,8 @@
-package com.bogcha.application.service;
+package com.restaurant.application.service;
 
 
-import com.bogcha.application.domain.User;
-import com.bogcha.application.repository.UserRepository;
+import com.restaurant.application.domain.User;
+import com.restaurant.application.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

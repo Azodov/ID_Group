@@ -1,4 +1,4 @@
-package com.bogcha.application.domain;
+package com.restaurant.application.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

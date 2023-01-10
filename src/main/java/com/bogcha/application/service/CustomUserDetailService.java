@@ -1,7 +1,7 @@
-package com.bogcha.application.service;
+package com.restaurant.application.service;
 
-import com.bogcha.application.domain.User;
-import com.bogcha.application.repository.UserRepository;
+import com.restaurant.application.domain.User;
+import com.restaurant.application.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

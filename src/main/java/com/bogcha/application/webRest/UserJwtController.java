@@ -1,9 +1,9 @@
-package com.bogcha.application.webRest;
+package com.restaurant.application.webRest;
 
-import com.bogcha.application.domain.User;
-import com.bogcha.application.repository.UserRepository;
-import com.bogcha.application.security.JwtTokenProvider;
-import com.bogcha.application.webRest.vm.LoginVM;
+import com.restaurant.application.domain.User;
+import com.restaurant.application.repository.UserRepository;
+import com.restaurant.application.security.JwtTokenProvider;
+import com.restaurant.application.webRest.vm.LoginVM;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

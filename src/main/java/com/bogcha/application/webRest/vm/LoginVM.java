@@ -1,4 +1,4 @@
-package com.bogcha.application.webRest.vm;
+package com.restaurant.application.webRest.vm;
 
 public class LoginVM {
 
