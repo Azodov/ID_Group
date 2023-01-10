@@ -19,9 +19,10 @@ public class UserService {
     }
 
 
-    public User create(User user){
+    public String create(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+        userRepository.save(user);
+        return "Ro'yxatga olindi";
     }
 
     public Boolean checkUserName(String userName){

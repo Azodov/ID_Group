@@ -21,12 +21,12 @@ public class UserResource {
     }
 
     @PostMapping("/register")
-    public ResponseEntity create(@RequestBody User user){
+    public ResponseEntity<?> create(@RequestBody User user){
         if (!checkPasswordLength(user.getPassword())){
             return new ResponseEntity("Parol uzuligi 4 dan kam", HttpStatus.BAD_REQUEST);
         }
         if (userService.checkUserName(user.getUserName())){
-            return new ResponseEntity("Bu user Oldin ro'yxatdan o'tgan", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("Bu user oldin ro'yxatdan o'tgan", HttpStatus.BAD_REQUEST);
         }
         return ResponseEntity.ok(userService.create(user));
     }

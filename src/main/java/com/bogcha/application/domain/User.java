@@ -25,11 +25,9 @@ public class User implements Serializable {
     private String userName;
 
     private String password;
-
-    private String email;
-
+    @JsonProperty("firstname")
     private String firstName;
-
+    @JsonProperty("lastname")
     private String lastName;
 
 

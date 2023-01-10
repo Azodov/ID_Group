@@ -3,8 +3,8 @@ server:
 
 spring:
     datasource:
-      url: jdbc:postgresql://localhost:5432/java_database
-      username: java_user
+      url: jdbc:postgresql://localhost:5432/magazine
+      username: magazine
       password: 0852
     jpa:
       properties:
