@@ -40,6 +40,7 @@ public class SecurityConfiguration  extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/api/register").permitAll()
                 .antMatchers("/api/login").permitAll()
+                .antMatchers("/api/getMe").permitAll()
                 .antMatchers("/api/restaurant/**").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()

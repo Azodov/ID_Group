@@ -1,8 +1,8 @@
-package com.restaurant.application.service;
+package com.bogcha.application.service;
 
 
-import com.restaurant.application.domain.User;
-import com.restaurant.application.repository.UserRepository;
+import com.bogcha.application.domain.User;
+import com.bogcha.application.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,10 +19,10 @@ public class UserService {
     }
 
 
-    public String create(User user){
+    public User create(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-        return "Ro'yxatga olindi";
+
+        return userRepository.save(user);
     }
 
     public Boolean checkUserName(String userName){

@@ -1,4 +1,4 @@
-package com.restaurant.application.security;
+package com.bogcha.application.security;
 
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

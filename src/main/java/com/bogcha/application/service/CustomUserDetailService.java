@@ -1,7 +1,7 @@
-package com.restaurant.application.service;
+package com.bogcha.application.service;
 
-import com.restaurant.application.domain.User;
-import com.restaurant.application.repository.UserRepository;
+import com.bogcha.application.domain.User;
+import com.bogcha.application.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 import java.util.Collection;
+import java.util.Date;
 import java.util.stream.Collectors;
 
 @Component
@@ -44,12 +45,13 @@ public class CustomUserDetailService implements UserDetailsService {
 
             @Override
             public boolean isAccountNonExpired() {
-                return true;
+                Date now = new Date();
+                return now.before(user.getExpireDate());
             }
 
             @Override
             public boolean isAccountNonLocked() {
-                return true;
+                return user.getEnabled();
             }
 
             @Override

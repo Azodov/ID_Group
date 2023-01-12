@@ -1,12 +1,12 @@
-package com.restaurant.application.domain;
+package com.bogcha.application.domain;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+import java.time.YearMonth;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -14,7 +14,6 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-@ToString
 public class User implements Serializable {
 
     @Id
@@ -25,11 +24,6 @@ public class User implements Serializable {
     private String userName;
 
     private String password;
-    @JsonProperty("firstname")
-    private String firstName;
-    @JsonProperty("lastname")
-    private String lastName;
-
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -39,12 +33,18 @@ public class User implements Serializable {
     )
     private Set<Role> roles = new HashSet<>();
 
+    private Boolean enabled = true;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "user_service",
-            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "service_name", referencedColumnName = "name")}
-    )
-    private Set<Service> service = new HashSet<>();
+    private Date expireDate = new Date(System.currentTimeMillis() + 1000L * 60 * 60 * 24 * YearMonth.of(
+            Calendar.getInstance().get(Calendar.YEAR),
+            Calendar.getInstance().get(Calendar.MONTH) + 1).lengthOfMonth());
+
+
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "user_restaurants",
+//            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+//            inverseJoinColumns = {@JoinColumn(name = "restaurant_id", referencedColumnName = "id")}
+//    )
+//    private Set<Restaurant> restaurants = new HashSet<>();
 }

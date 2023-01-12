@@ -1,9 +1,9 @@
-package com.restaurant.application.webRest;
+package com.bogcha.application.webRest;
 
-import com.restaurant.application.domain.User;
-import com.restaurant.application.repository.UserRepository;
-import com.restaurant.application.security.JwtTokenProvider;
-import com.restaurant.application.webRest.vm.LoginVM;
+import com.bogcha.application.domain.User;
+import com.bogcha.application.repository.UserRepository;
+import com.bogcha.application.security.JwtTokenProvider;
+import com.bogcha.application.webRest.vm.LoginVM;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -45,7 +45,8 @@ public class UserJwtController {
             map.put("token", token);
             return ResponseEntity.ok(map);
         } catch (Exception e){
-            return ResponseEntity.badRequest().body("Login yoki parol xato");
+            return ResponseEntity.badRequest().body("Login yoki parol xato bo'lishi mumkin\n" +
+                    "Yoki sizning obunangiz tugadi");
         }
     }
 
@@ -54,7 +55,7 @@ public class UserJwtController {
         if (principal == null){
             return ResponseEntity.status(403).body("Akkauntga kirilmagan");
         }
-        User user = userRepository.findByLogin(principal.getName());
-        return ResponseEntity.ok(user);
+
+        return ResponseEntity.ok(principal);
     }
 }

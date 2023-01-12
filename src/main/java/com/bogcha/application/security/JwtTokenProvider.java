@@ -1,6 +1,6 @@
-package com.restaurant.application.security;
+package com.bogcha.application.security;
 
-import com.restaurant.application.domain.Role;
+import com.bogcha.application.domain.Role;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;

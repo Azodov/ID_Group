@@ -1,4 +1,4 @@
-package com.restaurant.application.security;
+package com.bogcha.application.security;
 
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
