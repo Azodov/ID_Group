@@ -1,4 +1,4 @@
-package com.bogcha.application.domain;
+package com.bogcha.application.domain.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

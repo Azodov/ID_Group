@@ -1,7 +1,7 @@
 package com.bogcha.application.service;
 
 
-import com.bogcha.application.domain.User;
+import com.bogcha.application.domain.user.User;
 import com.bogcha.application.repository.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,6 +27,10 @@ public class UserService {
 
     public Boolean checkUserName(String userName){
         return userRepository.existsByUserName(userName);
+    }
+
+    public User findByUserName(String userName){
+        return userRepository.findByUserName(userName);
     }
 
 }

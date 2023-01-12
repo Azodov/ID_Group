@@ -1,11 +1,13 @@
-package com.bogcha.application.domain.WAITERS;
-
+package com.bogcha.application.domain.waiter;
+import com.bogcha.application.domain.restaurant.Restaurant;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+
 
 @Entity
 @Table(name = "waiters")
@@ -22,5 +24,11 @@ public class Waiters {
 
     private String username;
 
+    @JsonIgnore
     private String password;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
+
 }

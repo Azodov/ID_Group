@@ -1,6 +1,6 @@
 package com.bogcha.application.security;
 
-import com.bogcha.application.domain.Role;
+import com.bogcha.application.domain.user.Role;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;

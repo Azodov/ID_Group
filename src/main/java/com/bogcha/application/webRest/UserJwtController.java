@@ -1,8 +1,10 @@
 package com.bogcha.application.webRest;
 
-import com.bogcha.application.domain.User;
+import com.bogcha.application.domain.user.User;
 import com.bogcha.application.repository.UserRepository;
 import com.bogcha.application.security.JwtTokenProvider;
+import com.bogcha.application.service.RestaurantService;
+import com.bogcha.application.service.WaiterService;
 import com.bogcha.application.webRest.vm.LoginVM;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,15 +21,17 @@ import java.util.Map;
 public class UserJwtController {
 
     private final AuthenticationManager authenticationManager;
-
     private final JwtTokenProvider jwtTokenProvider;
-
     private final UserRepository userRepository;
+    private final WaiterService waiterService;
+    private final RestaurantService restaurantService;
 
-    public UserJwtController(AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider, UserRepository userRepository) {
+    public UserJwtController(AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider, UserRepository userRepository, WaiterService waiterService, RestaurantService restaurantService) {
         this.authenticationManager = authenticationManager;
         this.jwtTokenProvider = jwtTokenProvider;
         this.userRepository = userRepository;
+        this.waiterService = waiterService;
+        this.restaurantService = restaurantService;
     }
 
     @PostMapping("/login")
@@ -50,12 +54,13 @@ public class UserJwtController {
         }
     }
 
-    @GetMapping("/getMe")
-    public ResponseEntity<?> getMe(Principal principal){
-        if (principal == null){
-            return ResponseEntity.status(403).body("Akkauntga kirilmagan");
-        }
+    @GetMapping("/waiter")
+    public ResponseEntity<?> getAll(Principal principal){
+        return ResponseEntity.ok(waiterService.findAll());
+    }
 
-        return ResponseEntity.ok(principal);
+    @GetMapping("/restaurant")
+    public ResponseEntity<?> getAllRestaurants(Principal principal){
+        return ResponseEntity.ok(restaurantService.getAll());
     }
 }

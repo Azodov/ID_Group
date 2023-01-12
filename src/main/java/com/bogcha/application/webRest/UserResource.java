@@ -1,9 +1,9 @@
 package com.bogcha.application.webRest;
 
 
-import com.bogcha.application.domain.Role;
-import com.bogcha.application.domain.User;
-import com.bogcha.application.repository.RestaurantRepository;
+import com.bogcha.application.domain.user.Role;
+import com.bogcha.application.domain.user.User;
+import com.bogcha.application.repository.UserRepository;
 import com.bogcha.application.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +17,13 @@ import java.util.Set;
 public class UserResource {
 
     private final UserService userService;
-    private final RestaurantRepository restaurantRepository;
+    private final UserRepository userRepository;
 
-    public UserResource(UserService userService, RestaurantRepository restaurantRepository) {
+
+    public UserResource(UserService userService,
+                        UserRepository userRepository) {
         this.userService = userService;
-        this.restaurantRepository = restaurantRepository;
+        this.userRepository = userRepository;
     }
 
     @PostMapping("/register")
@@ -48,8 +50,4 @@ public class UserResource {
         return password.length() >= 4;
     }
 
-    @GetMapping("/restaurant/all")
-    public ResponseEntity<?> getAllRestaurant(){
-        return new ResponseEntity<>(restaurantRepository.findAll(), HttpStatus.OK);
-    }
 }

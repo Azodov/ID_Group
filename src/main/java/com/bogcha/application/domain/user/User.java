@@ -1,5 +1,6 @@
-package com.bogcha.application.domain;
+package com.bogcha.application.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
@@ -22,9 +23,9 @@ public class User implements Serializable {
 
     @JsonProperty("username")
     private String userName;
-
     private String password;
 
+    @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",
@@ -33,18 +34,12 @@ public class User implements Serializable {
     )
     private Set<Role> roles = new HashSet<>();
 
+    @JsonIgnore
     private Boolean enabled = true;
 
+    @JsonIgnore
     private Date expireDate = new Date(System.currentTimeMillis() + 1000L * 60 * 60 * 24 * YearMonth.of(
             Calendar.getInstance().get(Calendar.YEAR),
             Calendar.getInstance().get(Calendar.MONTH) + 1).lengthOfMonth());
 
-
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "user_restaurants",
-//            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
-//            inverseJoinColumns = {@JoinColumn(name = "restaurant_id", referencedColumnName = "id")}
-//    )
-//    private Set<Restaurant> restaurants = new HashSet<>();
 }

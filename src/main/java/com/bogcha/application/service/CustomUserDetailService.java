@@ -1,6 +1,6 @@
 package com.bogcha.application.service;
 
-import com.bogcha.application.domain.User;
+import com.bogcha.application.domain.user.User;
 import com.bogcha.application.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 
